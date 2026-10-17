@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — see docs/SITE_PLAN.md §3 */
+  --color-claret: #5b1d2b;
+  --color-claret-deep: #3b0f1a;
+  --color-claret-soft: #f1e3e6;
+  --color-claret-mist: #faf3f4;
+  --color-brass: #b8893a;
+  --color-brass-deep: #7c5a1c;
+  --color-brass-pale: #f5ead3;
+  --color-cream: #faf6ef;
+  --color-linen: #f1eadf;
+  --color-linen-dark: #e3d9c8;
+  --color-charcoal: #17151a;
+  --color-ink: #1e1b21;
+  --color-smoke: #5e5964;
+  --color-line: #dcd4c8;
+  --color-basil: #2e6b4e;
+  --color-basil-soft: #e3efe8;
+  --color-ember: #c2410c;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-deep: #1da851;
+  --color-danger: #b3261e;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+
+  --spacing-gutter: 24px;
+  --spacing-margin-desktop: 40px;
+  --spacing-container-max: 1240px;
+  --spacing-section: 88px;
+  --spacing-section-sm: 56px;
+
+  --radius-xl: 14px;
+  --radius-2xl: 22px;
+
+  --shadow-soft: 0 18px 40px -22px rgba(23, 21, 26, 0.35);
+  --shadow-card: 0 10px 30px -18px rgba(23, 21, 26, 0.3);
+}
+
+/* Material Symbols, subset to the icons listed in src/config/icons.ts (see README "Fonts"). */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: block;
+  src: url("/fonts/material-symbols.woff2") format("woff2");
+}
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: var(--color-claret);
+  color: var(--color-brass-pale);
+}
+
+/* ---------- Typography ---------- */
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  text-wrap: balance;
+}
+
+/* Default accent colour for <em> in display titles; in the base layer so colour utilities
+   (e.g. text-brass-pale on dark bands) can override it. */
+@layer base {
+  .display-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-brass-deep);
+  }
+}
+
+.eyebrow {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.lede {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .lede {
+    font-size: 1.25rem;
+  }
+}
+
+.prose-tt h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  margin-top: 2.25rem;
+  margin-bottom: 0.9rem;
+  color: var(--color-claret-deep);
+}
+
+.prose-tt h3 {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-tt p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+
+.prose-tt ul {
+  margin: 0.75rem 0 1.25rem;
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+}
+
+.prose-tt li {
+  margin-bottom: 0.4rem;
+  line-height: 1.65;
+}
+
+.prose-tt a {
+  color: var(--color-claret);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Motifs ---------- */
+
+/* Menu-style dotted leader between a label and its value */
+.leader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.leader::after {
+  content: "";
+  flex: 1;
+  order: 1;
+  border-bottom: 1.5px dotted var(--color-line);
+  transform: translateY(-0.3em);
+  min-width: 1.5rem;
+}
+
+.leader > :last-child {
+  order: 2;
+}
+
+.leader.on-dark::after {
+  border-color: rgba(250, 246, 239, 0.3);
+}
+
+/* Plate: circular photo mask with a thin brass rim */
+.plate {
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid rgba(184, 137, 58, 0.55);
+  pointer-events: none;
+}
+
+/* Menu card: a rounded-arch top edge, like a printed carte */
+.carte {
+  border-radius: 999px 999px 18px 18px / 220px 220px 18px 18px;
+  overflow: hidden;
+}
+
+/* Award stamp: double ring */
+.stamp {
+  position: relative;
+  border-radius: 9999px;
+}
+
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  border: 1px solid currentColor;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Perforated hairline */
+.perforated {
+  background-image: linear-gradient(to right, var(--color-line) 55%, transparent 45%);
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+/* Hairline rules */
+.rule {
+  border-color: var(--color-line);
+}
+
+.rule-brass {
+  border-color: rgba(184, 137, 58, 0.5);
+}
+
+/* Hide scrollbars on snap strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Material Symbols */
+/* Icons reserve a fixed 1em square so the ligature name never widens the layout before the font loads */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.icon-fill {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Hero overlays for photo readability */
+.hero-overlay {
+  background: linear-gradient(to right, rgba(23, 21, 26, 0.92) 0%, rgba(59, 15, 26, 0.78) 45%, rgba(23, 21, 26, 0.35) 100%);
+}
+
+.hero-overlay-bottom {
+  background: linear-gradient(to top, rgba(23, 21, 26, 0.92) 0%, rgba(23, 21, 26, 0.4) 55%, rgba(23, 21, 26, 0.1) 100%);
+}
+
+/* Reveal on load (progressive, no JS needed) */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.rise-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.rise-delay-2 {
+  animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
+
+/* Themed scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-linen);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-claret);
+  border-radius: 5px;
+  border: 2px solid var(--color-linen);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 3px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* Number inputs without spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Date inputs: keep the native picker icon visible on dark-on-light fields */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.7;
+  cursor: pointer;
+}

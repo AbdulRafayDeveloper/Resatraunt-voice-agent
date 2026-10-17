@@ -1,0 +1,376 @@
+{
+  "generatedAt": "2026-10-17T15:31:32.965Z",
+  "licence": "Pexels and Unsplash licences: free for commercial use, no attribution required",
+  "photos": [
+    {
+      "file": "home-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Le Salama",
+      "source": "https://www.pexels.com/photo/cozy-indoor-dining-scene-with-candlelight-37307283/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 204823
+    },
+    {
+      "file": "restaurants-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Matheus Bertelli",
+      "source": "https://www.pexels.com/photo/sunlit-hall-with-windows-13871340/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 346103
+    },
+    {
+      "file": "collections-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Matheus Bertelli",
+      "source": "https://www.pexels.com/photo/table-in-restaurant-17057034/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 179990
+    },
+    {
+      "file": "cities-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Irina Iriser",
+      "source": "https://www.pexels.com/photo/restaurant-windows-at-night-19032681/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 206592
+    },
+    {
+      "file": "awards-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Willians Huerta",
+      "source": "https://www.pexels.com/photo/chef-adding-finishing-touches-to-gourmet-dish-36430088/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 185667
+    },
+    {
+      "file": "guides-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Yazmin Roman",
+      "source": "https://www.pexels.com/photo/cozy-restaurant-menu-selection-experience-35392570/",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "bytes": 210571
+    },
+    {
+      "file": "about-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Chan Walrus",
+      "source": "https://www.pexels.com/photo/wine-glasses-on-table-tops-941861/",
+      "originalWidth": 2400,
+      "originalHeight": 1350,
+      "bytes": 220051
+    },
+    {
+      "file": "request-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "leonardomartin pagano",
+      "source": "https://www.pexels.com/photo/elegant-fine-dining-table-setting-at-night-37968303/",
+      "originalWidth": 2400,
+      "originalHeight": 1602,
+      "bytes": 190136
+    },
+    {
+      "file": "for-restaurants-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "cottonbro studio",
+      "source": "https://www.pexels.com/photo/man-in-white-dress-shirt-standing-beside-man-in-gray-vest-4253300/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 221949
+    },
+    {
+      "file": "contact-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "photographer": "Gustavo Fring",
+      "source": "https://www.pexels.com/photo/a-man-mixing-drinks-6284889/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 225641
+    },
+    {
+      "file": "dining-modern.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Anastasia Nagibina",
+      "source": "https://www.pexels.com/photo/modern-restaurant-interior-with-wooden-ceiling-design-31071253/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 140112
+    },
+    {
+      "file": "dining-classic.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Valeria Boltneva",
+      "source": "https://www.pexels.com/photo/chandelier-in-restaurant-20184679/",
+      "originalWidth": 2400,
+      "originalHeight": 3598,
+      "bytes": 157644
+    },
+    {
+      "file": "dining-bright.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Leonardo Ziaja",
+      "source": "https://unsplash.com/photos/elegant-restaurant-dining-area-with-warm-lighting-Ph7Y42lXzyw",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 239184
+    },
+    {
+      "file": "dining-moody.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "lens clickk",
+      "source": "https://www.pexels.com/photo/modern-restaurant-interior-with-wooden-ceiling-design-30479386/",
+      "originalWidth": 2400,
+      "originalHeight": 3200,
+      "bytes": 245062
+    },
+    {
+      "file": "dish-dark.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Change C.C",
+      "source": "https://www.pexels.com/photo/a-meal-on-a-plate-20150680/",
+      "originalWidth": 2400,
+      "originalHeight": 1350,
+      "bytes": 53977
+    },
+    {
+      "file": "dish-dark-2.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Burak Eroglu",
+      "source": "https://www.pexels.com/photo/elegant-gourmet-dish-on-minimalistic-plate-35479254/",
+      "originalWidth": 2400,
+      "originalHeight": 1802,
+      "bytes": 49992
+    },
+    {
+      "file": "dish-bright.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Jay Wennington",
+      "source": "https://unsplash.com/photos/dish-on-white-ceramic-plate-N_Y88TWmGwA",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 138617
+    },
+    {
+      "file": "dish-seafood.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Valeria Boltneva",
+      "source": "https://www.pexels.com/photo/gourmet-dish-with-wine-in-elegant-setting-32083407/",
+      "originalWidth": 2400,
+      "originalHeight": 3598,
+      "bytes": 99723
+    },
+    {
+      "file": "chef-plating.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Aabouden Yassir",
+      "source": "https://www.pexels.com/photo/chef-perfectly-plates-gourmet-dish-in-restaurant-38958593/",
+      "originalWidth": 2161,
+      "originalHeight": 3841,
+      "bytes": 52704
+    },
+    {
+      "file": "chef-pass.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "cottonbro studio",
+      "source": "https://www.pexels.com/photo/person-holding-fork-and-knife-slicing-vegetable-on-white-ceramic-plate-4253315/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 74771
+    },
+    {
+      "file": "wine-pour.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Pavel Danilyuk",
+      "source": "https://www.pexels.com/photo/a-man-pouring-white-wine-into-the-wine-glasses-at-the-table-8775392/",
+      "originalWidth": 2400,
+      "originalHeight": 1602,
+      "bytes": 112794
+    },
+    {
+      "file": "wine-glasses.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Zak Chapman",
+      "source": "https://www.pexels.com/photo/two-clear-wine-glasses-2104568/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 91309
+    },
+    {
+      "file": "cellar.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Ian Ramírez",
+      "source": "https://www.pexels.com/photo/close-up-of-wine-bottles-lying-in-rows-in-a-wine-cellar-19714324/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 115852
+    },
+    {
+      "file": "cocktail.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Antoni Shkraba",
+      "source": "https://www.pexels.com/photo/barman-holding-a-drink-4485365/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 90047
+    },
+    {
+      "file": "couple-dinner.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Nasim Didar",
+      "source": "https://www.pexels.com/photo/person-holding-clear-wine-glass-with-red-wine-9584690/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 130982
+    },
+    {
+      "file": "group-toast.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Pavel Danilyuk",
+      "source": "https://www.pexels.com/photo/elegant-people-eating-dinner-8775160/",
+      "originalWidth": 2400,
+      "originalHeight": 1602,
+      "bytes": 130817
+    },
+    {
+      "file": "business-dinner.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Pavel Danilyuk",
+      "source": "https://www.pexels.com/photo/a-man-and-woman-having-a-dinner-meeting-8775049/",
+      "originalWidth": 2400,
+      "originalHeight": 1602,
+      "bytes": 108787
+    },
+    {
+      "file": "tasting-counter.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Li Chunyu",
+      "source": "https://www.pexels.com/photo/cozy-restaurant-ambiance-with-dining-scene-37731522/",
+      "originalWidth": 2400,
+      "originalHeight": 3458,
+      "bytes": 142111
+    },
+    {
+      "file": "chefs-table.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Airam Dato-on",
+      "source": "https://www.pexels.com/photo/person-taking-a-photo-of-food-using-a-smartphone-9698229/",
+      "originalWidth": 2048,
+      "originalHeight": 3072,
+      "bytes": 100608
+    },
+    {
+      "file": "exterior-night.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "jim",
+      "source": "https://www.pexels.com/photo/modern-restaurant-facade-at-night-with-illuminated-sign-40241874/",
+      "originalWidth": 2400,
+      "originalHeight": 1350,
+      "bytes": 120392
+    },
+    {
+      "file": "city-street.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Z Guan",
+      "source": "https://unsplash.com/photos/a-group-of-people-sitting-outside-of-a-restaurant-at-night-VeKLhE63uro",
+      "originalWidth": 2400,
+      "originalHeight": 3598,
+      "bytes": 136154
+    },
+    {
+      "file": "dessert.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Kevin Early",
+      "source": "https://www.pexels.com/photo/a-chocolate-dessert-on-a-white-plate-with-a-spoon-27972413/",
+      "originalWidth": 2400,
+      "originalHeight": 3200,
+      "bytes": 91129
+    },
+    {
+      "file": "bread.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Natalia Olivera",
+      "source": "https://www.pexels.com/photo/rustic-bread-basket-with-herbs-and-assorted-breads-30666735/",
+      "originalWidth": 2400,
+      "originalHeight": 1602,
+      "bytes": 176624
+    },
+    {
+      "file": "coffee.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Letícia Alvares",
+      "source": "https://www.pexels.com/photo/cup-of-coffee-on-a-saucer-21367366/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 52594
+    },
+    {
+      "file": "host-stand.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Gustavo Fring",
+      "source": "https://www.pexels.com/photo/waiter-handing-man-restmenu-6284908/",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "bytes": 93916
+    },
+    {
+      "file": "table-linen.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Le Salama",
+      "source": "https://www.pexels.com/photo/elegant-restaurant-table-setting-with-warm-lighting-37307287/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 109795
+    },
+    {
+      "file": "menu-hands.jpg",
+      "width": 1400,
+      "height": 933,
+      "photographer": "Burcu Elmas",
+      "source": "https://www.pexels.com/photo/elegant-dining-menu-held-by-person-in-restaurant-36899435/",
+      "originalWidth": 2400,
+      "originalHeight": 3600,
+      "bytes": 84769
+    }
+  ]
+}
