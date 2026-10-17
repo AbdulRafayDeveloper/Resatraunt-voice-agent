@@ -34,12 +34,12 @@ interface TableRequestFormProps {
 }
 
 const nextSteps = [
-  "We email you within one working day with a reference and the quickest route to the table.",
+  "We call you within one working day with your reference and the quickest route to the table.",
   "We pass your request to the restaurant, or point you to its own booking page if that is faster.",
   "The restaurant confirms the table under its own deposit and cancellation terms. Nothing is booked until it does.",
 ];
 
-const fieldNames: ReadonlySet<string> = new Set<FieldPath<TableRequestInput>>(["restaurantSlug", "date", "time", "flexible", "partySize", "occasion", "dietary", "name", "email", "phone", "notes", "consent", "fax"]);
+const fieldNames: ReadonlySet<string> = new Set<FieldPath<TableRequestInput>>(["restaurantSlug", "date", "time", "flexible", "partySize", "occasion", "dietary", "name", "phone", "notes", "consent", "fax"]);
 
 function isFieldName(key: string): key is FieldPath<TableRequestInput> {
   return fieldNames.has(key);
@@ -126,7 +126,6 @@ export function TableRequestForm({ initialRestaurant, options }: TableRequestFor
       occasion: "none",
       dietary: "",
       name: "",
-      email: "",
       phone: "",
       notes: "",
       consent: false,
@@ -274,13 +273,10 @@ export function TableRequestForm({ initialRestaurant, options }: TableRequestFor
               <Field label="Your name" htmlFor="tr-name" error={errors.name?.message} required>
                 <Input id="tr-name" autoComplete="name" invalid={!!errors.name} {...register("name")} />
               </Field>
-              <Field label="Email" htmlFor="tr-email" error={errors.email?.message} required>
-                <Input id="tr-email" type="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />
+              <Field label="Phone" htmlFor="tr-phone" error={errors.phone?.message} hint="With country code. We call you back on this number." required>
+                <Input id="tr-phone" type="tel" inputMode="tel" autoComplete="tel" invalid={!!errors.phone} {...register("phone")} />
               </Field>
             </div>
-            <Field label="Phone (optional)" htmlFor="tr-phone" error={errors.phone?.message} hint="With country code, in case the restaurant needs to call.">
-              <Input id="tr-phone" type="tel" autoComplete="tel" invalid={!!errors.phone} {...register("phone")} />
-            </Field>
             <Field label="Notes" htmlFor="tr-notes" error={errors.notes?.message} hint="Group above 12, accessibility needs, a specific table.">
               <Textarea id="tr-notes" invalid={!!errors.notes} {...register("notes")} />
             </Field>

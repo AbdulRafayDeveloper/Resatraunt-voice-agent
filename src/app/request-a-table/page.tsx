@@ -1,10 +1,12 @@
+import { LinkButton } from "@/components/ui/Button";
 import { PageHero } from "@/components/layout/PageHero";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { PhoneBooking } from "@/components/sections/PhoneBooking";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { siteConfig } from "@/config/site";
+import { siteConfig, telUrl } from "@/config/site";
 import { getCity } from "@/data/cities";
 import { howItWorks } from "@/data/company";
 import { homeFaqs } from "@/data/faqs";
@@ -65,8 +67,12 @@ export default async function RequestATablePage({ searchParams }: PageProps) {
         crumbs={crumbs}
         eyebrow="Free · one working day"
         title={<>Request a <em>table</em>.</>}
-        lede="Tell us where, when and for how many. We reply by email within one working day and either pass the request to the restaurant or point you to the fastest way to secure the table. A request is not a confirmed booking: only the restaurant can confirm, under its own terms."
-      />
+        lede="Tell us where, when and for how many. We call you back within one working day and either pass the request to the restaurant or point you to the fastest way to secure the table. A request is not a confirmed booking: only the restaurant can confirm, under its own terms."
+      >
+        <LinkButton href={telUrl()} variant="outline" icon="call" iconPosition="start">
+          Or call to book: {siteConfig.phone}
+        </LinkButton>
+      </PageHero>
 
       <section className="py-section-sm md:py-section" aria-label="Table request">
         <Container>
@@ -97,7 +103,8 @@ export default async function RequestATablePage({ searchParams }: PageProps) {
         </Container>
       </section>
 
-      <FaqSection items={homeFaqs} number="03" showAllLink />
+      <PhoneBooking number="03" />
+      <FaqSection items={homeFaqs} number="04" showAllLink />
     </>
   );
 }

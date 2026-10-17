@@ -1,0 +1,48 @@
+# Render blueprint for the TableTalk voice agent.
+# Values marked sync: false are entered in the Render dashboard, never committed.
+services:
+  - type: web
+    name: tabletalk-voice-agent
+    runtime: docker
+    rootDir: voice-agent
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: LOG_LEVEL
+        value: info
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: TELNYX_API_KEY
+        sync: false
+      - key: TELNYX_PUBLIC_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_CHAT_MODEL
+        value: gpt-4o-mini
+      - key: OPENAI_STT_MODEL
+        value: gpt-4o-mini-transcribe
+      - key: OPENAI_TTS_MODEL
+        value: gpt-4o-mini-tts
+      - key: OPENAI_TTS_VOICE
+        value: alloy
+      - key: LLM_PROVIDER
+        value: openai
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: tabletalk
+      - key: RESTAURANT_NAME
+        value: TableTalk
+      - key: RESTAURANT_TIMEZONE
+        value: Europe/London
+      - key: OPEN_HOUR
+        value: "11"
+      - key: CLOSE_HOUR
+        value: "23"
+      - key: TOTAL_TABLES
+        value: "10"

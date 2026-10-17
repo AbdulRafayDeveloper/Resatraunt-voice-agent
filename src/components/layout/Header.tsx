@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/graphics/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { LinkButton } from "@/components/ui/Button";
-import { siteConfig } from "@/config/site";
+import { siteConfig, telUrl } from "@/config/site";
 import { primaryNav, requestHref, secondaryNav } from "@/config/navigation";
 import { cn, formatDate } from "@/lib/utils";
 
@@ -48,6 +48,9 @@ export function Header() {
             London · Edinburgh · New York · Chicago · Philadelphia · Listings checked {formatDate(siteConfig.dataCheckedOn)}
           </p>
           <div className="flex items-center gap-5">
+            <a href={telUrl()} className="flex items-center gap-1.5 font-bold text-brass hover:text-cream">
+              <Icon name="call" className="text-[16px]" /> Call to book: {siteConfig.phone}
+            </a>
             <Link href="/about" className="text-cream/85 hover:text-brass">How we verify</Link>
             <Link href="/for-restaurants" className="font-bold hover:text-brass">List your restaurant</Link>
           </div>
@@ -86,6 +89,9 @@ export function Header() {
 
           {/* Mobile controls */}
           <div className="flex items-center gap-2 lg:hidden">
+            <a href={telUrl()} aria-label={`Call to book: ${siteConfig.phone}`} className="flex h-11 w-11 items-center justify-center rounded-lg border border-claret/25 text-claret">
+              <Icon name="call" className="text-[22px]" />
+            </a>
             <Link href="/restaurants" aria-label="Open restaurant search" className="flex h-11 w-11 items-center justify-center rounded-lg bg-claret text-cream">
               <Icon name="search" className="text-[22px]" />
             </Link>
@@ -172,6 +178,9 @@ export function Header() {
           <div className="space-y-2 border-t border-line bg-linen px-5 py-4" onClickCapture={() => setOpen(false)}>
             <LinkButton href={requestHref} variant="primary" fullWidth icon="arrow_forward">
               Request a table
+            </LinkButton>
+            <LinkButton href={telUrl()} variant="outline" fullWidth icon="call" iconPosition="start">
+              Call to book: {siteConfig.phone}
             </LinkButton>
             <LinkButton href="/restaurants" variant="outline" fullWidth icon="search" iconPosition="start">
               Search restaurants

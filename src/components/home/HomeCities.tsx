@@ -20,7 +20,7 @@ export function HomeCities() {
   return (
     <section className="bg-linen py-section-sm md:py-section" aria-label="Cities">
       <Container>
-        <SectionHeading number="05" eyebrow="Cities" title={<>Where we have <em>checked the tables</em>.</>} lede="Each city page carries local dining notes: service charges, tax, release windows and how walk-ins work." />
+        <SectionHeading number="06" eyebrow="Cities" title={<>Where we have <em>checked the tables</em>.</>} lede="Each city page carries local dining notes: service charges, tax, release windows and how walk-ins work." />
         <ul className="mt-10 divide-y divide-line border-y border-line">
           {rows.map(({ city, count, range, awards }) => (
             <li key={city.slug}>

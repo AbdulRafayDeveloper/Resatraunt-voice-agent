@@ -75,7 +75,8 @@ export const organizationSchema = {
   image: OG_IMAGE,
   description: siteConfig.description,
   foundingDate: String(siteConfig.foundedYear),
-  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  contactPoint: { "@type": "ContactPoint", telephone: siteConfig.phone, contactType: "reservations", availableLanguage: "English" },
   areaServed: [
     { "@type": "Country", name: "United Kingdom" },
     { "@type": "Country", name: "United States" },

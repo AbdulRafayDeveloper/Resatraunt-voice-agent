@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/graphics/Logo";
 import { Hatch } from "@/components/graphics/Hatch";
 import { Icon } from "@/components/ui/Icon";
-import { siteConfig, whatsappUrl } from "@/config/site";
+import { siteConfig, telUrl, whatsappUrl } from "@/config/site";
 import { legalNav, primaryNav, requestHref, secondaryNav } from "@/config/navigation";
 import { cities } from "@/data/cities";
 import { collections } from "@/data/collections";
@@ -26,7 +26,7 @@ export function Footer() {
             <p className="display-title mt-2 text-3xl text-cream md:text-4xl">
               Know when the <em className="text-brass">diary opens</em>.
             </p>
-            <p className="mt-3 max-w-md text-cream/75">One email a month: new listings, release dates for hard-to-book tables, and menu price changes we have verified. Unsubscribe in one click.</p>
+            <p className="mt-3 max-w-md text-cream/75">One message a month to your phone: new listings, release dates for hard-to-book tables, and menu price changes we have verified. Opt out at any time.</p>
           </div>
           <NewsletterForm />
         </div>
@@ -101,8 +101,8 @@ export function Footer() {
           </ul>
           <address className="mt-5 space-y-2 text-sm not-italic text-cream/80">
             <p className="flex items-start gap-2">
-              <Icon name="mail" className="mt-0.5 text-[18px] text-brass" />
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-cream">{siteConfig.email}</a>
+              <Icon name="call" className="mt-0.5 text-[18px] text-brass" />
+              <a href={telUrl()} className="hover:text-cream">Book by phone: {siteConfig.phone}</a>
             </p>
             {whatsapp && (
               <p className="flex items-start gap-2">

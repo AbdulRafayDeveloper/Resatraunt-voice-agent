@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Hatch } from "@/components/graphics/Hatch";
 import { LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { siteConfig } from "@/config/site";
+import { siteConfig, telUrl } from "@/config/site";
 import { requestHref } from "@/config/navigation";
 import type { SiteImage } from "@/data/images";
 
@@ -48,6 +48,10 @@ export function CtaBand({
             <LinkButton href={secondaryHref} variant="outlineLight" size="lg">{secondaryLabel}</LinkButton>
           </div>
           <p className="mt-4 text-sm text-cream/70">A request is not a confirmed booking. {siteConfig.replyPromise}</p>
+          <p className="mt-2 text-sm text-cream/85">
+            Prefer to talk?{" "}
+            <a href={telUrl()} className="font-bold text-brass underline-offset-2 hover:underline">Call to book: {siteConfig.phone}</a>
+          </p>
         </div>
       </Container>
     </section>

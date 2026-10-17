@@ -11,7 +11,7 @@ export function HomeVerify() {
     <section className="bg-cream py-section-sm md:py-section" aria-label="How we verify">
       <Container className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
-          <SectionHeading number="06" eyebrow="Why trust a listing" title={<>Facts with a <em>date and a source</em>.</>} lede="No star ratings, no review counts, no stock claims. What you see is what the restaurant or the awarding body has published, checked on the date shown." />
+          <SectionHeading number="07" eyebrow="Why trust a listing" title={<>Facts with a <em>date and a source</em>.</>} lede="No star ratings, no review counts, no stock claims. What you see is what the restaurant or the awarding body has published, checked on the date shown." />
           <ol className="mt-8 space-y-6 border-s-2 border-brass/50 ps-6">
             {verificationSteps.map((s, i) => (
               <li key={s.title} className="relative">

@@ -5,6 +5,7 @@ import { useId, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Select } from "@/components/ui/Field";
+import { siteConfig, telUrl } from "@/config/site";
 import type { Occasion } from "@/types";
 
 interface QuickFinderProps {
@@ -60,6 +61,9 @@ export function QuickFinder({ cities, occasions }: QuickFinderProps) {
       <Button type="submit" variant="brass" fullWidth className="mt-3" icon="arrow_forward">
         Show restaurants
       </Button>
+      <a href={telUrl()} className="mt-3 flex items-center justify-center gap-2 text-sm font-bold text-claret underline-offset-2 hover:underline">
+        <Icon name="call" className="text-[18px] text-brass-deep" /> Or call to book: {siteConfig.phone}
+      </a>
     </form>
   );
 }

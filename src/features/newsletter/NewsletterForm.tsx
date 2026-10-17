@@ -21,7 +21,7 @@ export function NewsletterForm() {
     formState: { errors, isSubmitting },
   } = useForm<NewsletterInput>({
     resolver: zodResolver(newsletterSchema),
-    defaultValues: { email: "", cityInterest: "all", consent: false, fax: "" },
+    defaultValues: { phone: "", cityInterest: "all", consent: false, fax: "" },
   });
 
   const onSubmit = async (values: NewsletterInput) => {
@@ -35,7 +35,7 @@ export function NewsletterForm() {
     return (
       <div className="rounded-2xl border border-brass/40 bg-cream/5 p-5 text-cream" role="status">
         <p className="flex items-center gap-2 font-bold"><Icon name="check_circle" filled className="text-[22px] text-brass" /> You are on the list · {reference}</p>
-        <p className="mt-2 text-sm text-cream/75">The first email arrives with the next monthly round-up. Every email has an unsubscribe link.</p>
+        <p className="mt-2 text-sm text-cream/75">The first message arrives with the next monthly round-up. Reply STOP at any time to leave the list.</p>
       </div>
     );
   }
@@ -45,9 +45,9 @@ export function NewsletterForm() {
       <Honeypot id={`${id}-fax`} {...register("fax")} />
       <div className="grid gap-3 sm:grid-cols-[1.4fr_1fr]">
         <div>
-          <label htmlFor={`${id}-email`} className="sr-only">Email address</label>
-          <Input id={`${id}-email`} type="email" autoComplete="email" placeholder="you@example.com" invalid={!!errors.email} {...register("email")} />
-          {errors.email && <p role="alert" className="mt-1 text-xs font-semibold text-brass-pale">{errors.email.message}</p>}
+          <label htmlFor={`${id}-phone`} className="sr-only">Phone number</label>
+          <Input id={`${id}-phone`} type="tel" inputMode="tel" autoComplete="tel" placeholder="+44 7700 900000" invalid={!!errors.phone} {...register("phone")} />
+          {errors.phone && <p role="alert" className="mt-1 text-xs font-semibold text-brass-pale">{errors.phone.message}</p>}
         </div>
         <div>
           <label htmlFor={`${id}-city`} className="sr-only">City of interest</label>
@@ -61,7 +61,7 @@ export function NewsletterForm() {
       </div>
       <label className="flex items-start gap-2 text-sm text-cream/80">
         <input type="checkbox" className="mt-1 h-4 w-4 accent-brass" {...register("consent")} />
-        <span>I agree to receive the monthly TableTalk email and understand I can unsubscribe at any time. See the <a href="/privacy-policy" className="underline underline-offset-2 hover:text-cream">privacy policy</a>.</span>
+        <span>I agree to receive one TableTalk message a month on this number and understand I can opt out at any time. See the <a href="/privacy-policy" className="underline underline-offset-2 hover:text-cream">privacy policy</a>.</span>
       </label>
       {errors.consent && <p role="alert" className="text-xs font-semibold text-brass-pale">{errors.consent.message}</p>}
       {serverError && <p role="alert" className="text-xs font-semibold text-brass-pale">{serverError}</p>}

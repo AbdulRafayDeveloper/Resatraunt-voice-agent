@@ -12,7 +12,7 @@ import { contactSchema, topicOptions, type ContactInput } from "@/lib/validation
 
 const defaultValues: ContactInput = {
   name: "",
-  email: "",
+  phone: "",
   topic: "request",
   reference: "",
   message: "",
@@ -53,7 +53,7 @@ export function ContactForm() {
         <p className="flex items-center gap-2 font-display text-2xl font-medium text-basil">
           <Icon name="check_circle" filled className="text-[26px]" /> Message received · {reference}
         </p>
-        <p className="mt-3 leading-relaxed">Thank you. Quote this reference if you write again about the same matter. A person will reply by email.</p>
+        <p className="mt-3 leading-relaxed">Thank you. Quote this reference if you get in touch again about the same matter. A person will call you back.</p>
         <p className="mt-2 text-sm text-smoke">{siteConfig.replyPromise}</p>
       </div>
     );
@@ -67,8 +67,8 @@ export function ContactForm() {
         <Field label="Your name" htmlFor="cf-name" error={errors.name?.message} required>
           <Input id="cf-name" autoComplete="name" invalid={!!errors.name} {...register("name")} />
         </Field>
-        <Field label="Email" htmlFor="cf-email" error={errors.email?.message} required>
-          <Input id="cf-email" type="email" inputMode="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />
+        <Field label="Phone" htmlFor="cf-phone" error={errors.phone?.message} hint="With country code." required>
+          <Input id="cf-phone" type="tel" inputMode="tel" autoComplete="tel" invalid={!!errors.phone} {...register("phone")} />
         </Field>
       </div>
 
@@ -80,7 +80,7 @@ export function ContactForm() {
             ))}
           </Select>
         </Field>
-        <Field label="Reference (optional)" htmlFor="cf-reference" error={errors.reference?.message} hint="From a confirmation email, e.g. TT-ABC123.">
+        <Field label="Reference (optional)" htmlFor="cf-reference" error={errors.reference?.message} hint="From your request confirmation, e.g. TT-ABC123.">
           <Input id="cf-reference" autoComplete="off" invalid={!!errors.reference} {...register("reference")} />
         </Field>
       </div>

@@ -12,7 +12,7 @@ export function HomeGuides() {
     <section className="bg-linen py-section-sm md:py-section" aria-label="Guides">
       <Container className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <SectionHeading number="07" eyebrow="Guides" title={<>Know before <em>you book</em>.</>} lede="Release windows, deposits, dress codes and what a tasting menu commits you to, with real examples from the listings." size="md" />
+          <SectionHeading number="08" eyebrow="Guides" title={<>Know before <em>you book</em>.</>} lede="Release windows, deposits, dress codes and what a tasting menu commits you to, with real examples from the listings." size="md" />
           <LinkButton href="/guides" variant="outline" className="mt-6" icon="arrow_forward">All guides</LinkButton>
         </div>
         <ul className="divide-y divide-line border-y border-line">

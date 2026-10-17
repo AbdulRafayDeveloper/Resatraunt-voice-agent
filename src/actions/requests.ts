@@ -97,6 +97,6 @@ export async function submitRequest(kind: RequestKind, raw: unknown): Promise<Fo
     return { ok: true, reference };
   } catch (error) {
     console.error(JSON.stringify({ event: "request_unexpected_error", kind, message: error instanceof Error ? error.message : "unknown" }));
-    return { ok: false, error: "Something went wrong on our side. Please try again in a moment or email us directly." };
+    return { ok: false, error: "Something went wrong on our side. Please try again in a moment or call our booking line." };
   }
 }

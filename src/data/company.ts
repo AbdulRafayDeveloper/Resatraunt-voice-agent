@@ -4,7 +4,7 @@ import type { HowItWorksStep } from "@/types";
 export const howItWorks: HowItWorksStep[] = [
   { title: "Choose a restaurant", detail: "Search by city, cuisine, price band or occasion. Every listing shows hours, menu formats, booking rules and awards with their source.", icon: "search" },
   { title: "Send a request", detail: "Tell us the date, time, party size, occasion and any dietary needs. It takes a minute and nothing is charged.", icon: "edit_note" },
-  { title: "We confirm the route", detail: "Within one working day we email you a reference and either pass the request to the restaurant or point you to the fastest way to secure the table.", icon: "mark_email_read" },
+  { title: "We confirm the route", detail: "Within one working day we call you with your reference and either pass the request to the restaurant or point you to the fastest way to secure the table.", icon: "phone_in_talk" },
   { title: "The restaurant confirms", detail: "A booking is only confirmed when the restaurant says so, under its own deposit and cancellation terms. We show those terms before you ask.", icon: "event_available" },
 ];
 

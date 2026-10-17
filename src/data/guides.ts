@@ -115,7 +115,7 @@ export const guides: Guide[] = [
       {
         heading: "How to cancel cleanly",
         paragraphs: [
-          "Cancel through the same channel you booked in, as early as you can, and keep the confirmation. If you booked through a request on TableTalk, reply to your confirmation email with the reference and we will tell the restaurant the same day. The restaurant's own terms still decide whether a fee applies.",
+          "Cancel through the same channel you booked in, as early as you can, and keep the confirmation. If you booked through a request on TableTalk, call our booking line or use the contact form with the reference and we will tell the restaurant the same day. The restaurant's own terms still decide whether a fee applies.",
         ],
       },
       {

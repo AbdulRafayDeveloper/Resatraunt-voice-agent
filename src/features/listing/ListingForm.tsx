@@ -24,7 +24,6 @@ const defaultValues: ListingInput = {
   website: "",
   contactName: "",
   role: "owner",
-  email: "",
   phone: "",
   covers: "30-60",
   message: "",
@@ -67,7 +66,7 @@ export function ListingForm() {
           <Icon name="check_circle" filled className="text-[26px]" /> Enquiry received · {reference}
         </p>
         <p className="mt-3 leading-relaxed">
-          Thank you. Keep this reference. We will read your website and any awards sources you named, then reply by email with what we found and what we need from you before anything is published.
+          Thank you. Keep this reference. We will read your website and any awards sources you named, then call you with what we found and what we need from you before anything is published.
         </p>
         <p className="mt-2 text-sm text-smoke">{siteConfig.replyPromise} Listing enquiries receive the same reply promise.</p>
       </div>
@@ -115,10 +114,7 @@ export function ListingForm() {
           </Field>
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Email" htmlFor="lf-email" error={errors.email?.message} required>
-            <Input id="lf-email" type="email" inputMode="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />
-          </Field>
-          <Field label="Phone (optional)" htmlFor="lf-phone" error={errors.phone?.message} hint="With country code, e.g. +44 or +1.">
+          <Field label="Phone" htmlFor="lf-phone" error={errors.phone?.message} hint="With country code, e.g. +44 or +1." required>
             <Input id="lf-phone" type="tel" inputMode="tel" autoComplete="tel" invalid={!!errors.phone} {...register("phone")} />
           </Field>
         </div>
@@ -132,7 +128,7 @@ export function ListingForm() {
         <label htmlFor="lf-consent" className="flex items-start gap-3 text-sm text-ink/90">
           <input id="lf-consent" type="checkbox" className="mt-1 h-4 w-4 accent-claret" aria-invalid={errors.consent ? true : undefined} {...register("consent")} />
           <span>
-            I agree to be contacted by email about this enquiry and understand that commercial terms are not finalised and that no restaurant is charged until they are published. See the <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-claret">privacy policy</Link>.
+            I agree to be contacted by phone about this enquiry and understand that commercial terms are not finalised and that no restaurant is charged until they are published. See the <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-claret">privacy policy</Link>.
           </span>
         </label>
         {errors.consent && <p role="alert" className="mt-1.5 text-xs font-semibold text-danger">{errors.consent.message}</p>}

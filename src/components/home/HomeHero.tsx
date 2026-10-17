@@ -16,7 +16,7 @@ const trustChips = [
   { icon: "fact_check", text: "Hours and prices as published" },
   { icon: "workspace_premium", text: `${awardCount} awards, each with a source` },
   { icon: "event_available", text: "Booking rules before you ask" },
-  { icon: "mail", text: "Reply within one working day" },
+  { icon: "call", text: "Call-back within one working day" },
 ];
 
 /**

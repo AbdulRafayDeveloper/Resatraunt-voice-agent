@@ -2,11 +2,12 @@
  * Single source of truth for brand identity, contact channels and URLs.
  * Every component, metadata block and JSON-LD graph reads from here.
  *
- * Contact details are placeholders until the business supplies real ones. The `.example` domain
- * is reserved by the IETF and can never deliver mail, so a placeholder can never reach a stranger.
+ * TableTalk is reached by phone only. The booking line is the Telnyx number answered by the voice
+ * agent (see voice-agent/). Until the real number is set, the placeholder sits in Ofcom's range
+ * reserved for drama (020 7946 0xxx), so it can never ring a real person.
  */
 
-const PLACEHOLDER_EMAIL = "hello@tabletalk.example";
+const PLACEHOLDER_PHONE = "+44 20 7946 0123";
 
 export const siteConfig = {
   name: "TableTalk",
@@ -16,22 +17,35 @@ export const siteConfig = {
   description:
     "TableTalk is a dining guide and table-request service for restaurants in London, Edinburgh, New York, Chicago and Philadelphia. Every listing shows verified hours, menu formats, prices as published, booking rules and awards with their source and year.",
   foundedYear: 2026,
-  /** Contact email; override with NEXT_PUBLIC_CONTACT_EMAIL once the real inbox exists. */
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || PLACEHOLDER_EMAIL,
+  /** Booking and contact phone line, written for display (e.g. "+44 20 7946 0123"). Set NEXT_PUBLIC_BOOKING_PHONE to the Telnyx number. */
+  phone: process.env.NEXT_PUBLIC_BOOKING_PHONE?.trim() || PLACEHOLDER_PHONE,
+  /** Booking rules the voice agent applies; mirrored in voice-agent/ configuration. */
+  phoneBooking: {
+    opensAt: "11:00",
+    closesAt: "23:00",
+    tables: 10,
+    slotMinutes: 60,
+    collects: ["Your name", "Number of guests", "Day", "Time"],
+  },
   /** Optional WhatsApp number in international format without "+" (e.g. 447700900000). Hidden when unset. */
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "",
   /** Optional Instagram profile URL. Hidden when unset. */
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL?.trim() || "",
   /** Written reply promise shown next to every request form. */
-  replyPromise: "We reply to every table request by email within one working day.",
+  replyPromise: "We call you back about every table request within one working day.",
   /** ISO date when listing facts (hours, menus, awards) were last checked. Bump when data changes. */
   dataCheckedOn: "2026-10-17",
   /** The site is written in British English; US venues keep their own spellings in names and menus. */
   language: "en-GB",
 } as const;
 
-export function isPlaceholderEmail(): boolean {
-  return siteConfig.email === PLACEHOLDER_EMAIL;
+export function isPlaceholderPhone(): boolean {
+  return siteConfig.phone === PLACEHOLDER_PHONE;
+}
+
+/** tel: link for the booking line (spaces and punctuation stripped). */
+export function telUrl(): string {
+  return `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`;
 }
 
 const LOCAL_URL = "http://localhost:3000";
@@ -66,11 +80,3 @@ export function whatsappUrl(message?: string): string | null {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
-/** mailto: link with an optional subject and body. */
-export function mailtoUrl(subject?: string, body?: string): string {
-  const params = new URLSearchParams();
-  if (subject) params.set("subject", subject);
-  if (body) params.set("body", body);
-  const query = params.toString();
-  return `mailto:${siteConfig.email}${query ? `?${query}` : ""}`;
-}

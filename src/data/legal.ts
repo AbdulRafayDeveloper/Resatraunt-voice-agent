@@ -13,7 +13,7 @@ export interface LegalDocument {
 
 const UPDATED = "2026-10-17";
 const TBC = "[to be confirmed]";
-const email = siteConfig.email;
+const phone = siteConfig.phone;
 
 export const privacyPolicy: LegalDocument = {
   title: "Privacy Policy",
@@ -26,7 +26,7 @@ export const privacyPolicy: LegalDocument = {
       heading: "Who we are",
       paragraphs: [
         `TableTalk is a dining guide and table-request service for restaurants in the United Kingdom and the United States, operated by ${siteConfig.legalName}. The controller of the personal data described here is that entity; its registered name and address will be published on this page before launch ${TBC}.`,
-        `You can reach us about anything in this policy at ${email}.`,
+        `You can reach us about anything in this policy on ${phone}.`,
       ],
     },
     {
@@ -35,10 +35,11 @@ export const privacyPolicy: LegalDocument = {
         "The site has no accounts and no login. Everything we hold comes from a form you chose to fill in, or from the technical record of your visit.",
       ],
       bullets: [
-        "Table request form: the restaurant, date, time, party size, occasion, dietary notes, your name, email address, optional phone number, free-text notes and your confirmation that a request is not a booking.",
-        "List your restaurant form: restaurant name, city, optional website, your name, role, email address, optional phone number, covers per service, a free-text description and your consent to be contacted.",
-        "Contact form: your name, email address, the topic, an optional reference number and your message.",
-        "Newsletter form: your email address, the city you are interested in and your consent.",
+        "Table request form: the restaurant, date, time, party size, occasion, dietary notes, your name, phone number, free-text notes and your confirmation that a request is not a booking.",
+        "List your restaurant form: restaurant name, city, optional website, your name, role, phone number, covers per service, a free-text description and your consent to be contacted.",
+        "Contact form: your name, phone number, the topic, an optional reference number and your message.",
+        "Newsletter form: your phone number, the city you are interested in and your consent.",
+        "Phone bookings: when you call the booking line, our voice agent takes your name, the number of guests, the day and the time, and saves the booking. The number you call from is not saved with the booking; it appears only in masked form in our service logs.",
         "Technical data: the IP address of the connection that submits a form, used only for rate limiting (see below), and standard server logs kept by our hosting provider.",
       ],
     },
@@ -50,7 +51,8 @@ export const privacyPolicy: LegalDocument = {
       bullets: [
         "Answering a table request, passing it to the restaurant you named and telling you the outcome: necessary to take the steps you asked for before any booking (contract).",
         "Answering a listing enquiry or a contact message: our legitimate interest in running the service and responding to people who write to us.",
-        "Sending the newsletter: your consent, which you can withdraw at any time using the link in every email or by writing to us.",
+        "Sending the newsletter: your consent, which you can withdraw at any time by replying STOP to any message or by calling us.",
+        "Taking a booking on the phone line: necessary to make the booking you asked for (contract). The voice agent only books a table that is free; it does not make any other decision about you.",
         "Rate limiting and spam prevention, including the hidden honeypot field on each form: our legitimate interest in keeping the service available and free of abuse.",
         "We do not use your data for profiling or automated decisions, and we do not sell it.",
       ],
@@ -58,8 +60,9 @@ export const privacyPolicy: LegalDocument = {
     {
       heading: "Where your data goes",
       paragraphs: [
-        "When you submit a form, the data is validated on our server and then forwarded as a single message to a delivery endpoint we configure (a webhook). That endpoint delivers the submission to the inbox or tool our team uses to answer it. The identity of the provider behind that endpoint will be listed here before launch " + TBC + ".",
+        "When you submit a form, the data is validated on our server and then forwarded as a single message to a delivery endpoint we configure (a webhook). That endpoint delivers the submission to the tool our team uses to answer it. The identity of the provider behind that endpoint will be listed here before launch " + TBC + ".",
         "If you ask us to request a table, we pass the details the restaurant needs to consider it: date, time, party size, occasion, dietary notes, your name and your contact details. The restaurant then handles those details under its own privacy policy. We do not pass your details to any restaurant you did not name.",
+        "Phone calls are carried by our telephony provider, Telnyx. What you say is converted to text, and our replies are converted back to speech, by OpenAI, which also powers the voice agent's understanding of the conversation. Bookings are stored in our database (MongoDB). We do not keep audio recordings of calls; the text of each turn of the conversation is kept in our service logs for troubleshooting for " + TBC + ".",
         "Where a restaurant takes bookings through a third-party provider such as Tock, Resy, SevenRooms or OpenTable, any booking you make there is between you and that provider under its terms; we are not party to it and do not receive your payment details.",
         "Our hosting provider processes technical data to serve the site and keeps standard access logs. Our hosting provider and the countries in which data is stored will be named here before launch " + TBC + ". Where data leaves the United Kingdom, we rely on the UK's adequacy regulations or the International Data Transfer Agreement.",
       ],
@@ -68,7 +71,7 @@ export const privacyPolicy: LegalDocument = {
       heading: "Rate limiting and what is not stored",
       paragraphs: [
         "To limit abuse, the server keeps a short-lived count of submissions per connection in memory. Only the IP address and the timestamps of its recent submissions are held, for ten minutes at most, and nothing is written to disk. If you submit more than eight forms in ten minutes you will be asked to wait.",
-        "Our application logs record the kind of form submitted and the reference number issued. They do not record names, email addresses, phone numbers or message content.",
+        "The website's application logs record the kind of form submitted and the reference number issued. They do not record names, phone numbers or message content.",
       ],
     },
     {
@@ -83,7 +86,7 @@ export const privacyPolicy: LegalDocument = {
       paragraphs: [
         "If you are in the United Kingdom or the European Economic Area, you have the right to ask for a copy of the data we hold about you, to have it corrected or deleted, to restrict or object to how we use it, to receive it in a portable form, and to withdraw consent where consent is the basis. You also have the right to complain to the Information Commissioner's Office (ico.org.uk) or your local supervisory authority.",
         "If you are in a US state with a consumer privacy law, such as California, Virginia, Colorado, Connecticut or Texas, you may have similar rights of access, correction, deletion and portability, and the right to opt out of the sale or sharing of personal data and of targeted advertising. We do not sell or share personal data for advertising, so there is nothing to opt out of, and we will not treat you differently for exercising a right.",
-        `To exercise any right, email ${email} with the reference number from your confirmation if you have one. We will confirm your identity before releasing or deleting data and reply within one month, or the shorter period your local law requires.`,
+        `To exercise any right, call ${phone} with the reference number from your confirmation if you have one. We will confirm your identity before releasing or deleting data and reply within one month, or the shorter period your local law requires.`,
       ],
     },
     {
@@ -131,7 +134,7 @@ export const termsOfUse: LegalDocument = {
       heading: "A request is not a booking",
       paragraphs: [
         "Sending a table request through the site does not create a reservation and does not oblige any restaurant to hold a table. A booking exists only when the restaurant, or its booking provider, confirms it to you, and it is then governed by the restaurant's own terms, including any deposit, prepayment or cancellation fee.",
-        `We promise to reply to every request by email within one working day. We do not promise that a table will be available, that a restaurant will respond, or that it will respond within any particular time. The Booking and Cancellation Policy explains the process in more detail.`,
+        `We promise to call you back about every request within one working day. We do not promise that a table will be available, that a restaurant will respond, or that it will respond within any particular time. The Booking and Cancellation Policy explains the process in more detail.`,
       ],
     },
     {
@@ -177,7 +180,7 @@ export const termsOfUse: LegalDocument = {
       heading: "Governing law and changes",
       paragraphs: [
         `These terms are governed by the law of ${TBC}, and disputes will be heard in the courts of ${TBC}, without affecting any mandatory consumer rights you have where you live.`,
-        `We may update these terms; the date at the top shows the current version. Continued use of the site after a change means you accept the new terms. Questions about them can be sent to ${email}.`,
+        `We may update these terms; the date at the top shows the current version. Continued use of the site after a change means you accept the new terms. Questions about them can be raised by calling ${phone}.`,
       ],
     },
   ],
@@ -231,7 +234,7 @@ export const cookiePolicy: LegalDocument = {
     },
     {
       heading: "Contact",
-      paragraphs: [`Questions about this policy can be sent to ${email}. The Privacy Policy explains how we handle the information you send us through forms.`],
+      paragraphs: [`Questions about this policy can be raised by calling ${phone}. The Privacy Policy explains how we handle the information you send us through forms.`],
     },
   ],
 };
@@ -278,7 +281,7 @@ export const bookingPolicy: LegalDocument = {
     {
       heading: "How to cancel or change a request",
       paragraphs: [
-        "Before the restaurant has confirmed: reply to the email that carries your reference, or use the contact form choosing 'An existing table request' and quoting the reference. We will tell the restaurant the same working day, and there is nothing to pay.",
+        "Before the restaurant has confirmed: call our booking line quoting your reference, or use the contact form choosing 'An existing table request' and quoting the reference. We will tell the restaurant the same working day, and there is nothing to pay.",
         "After the restaurant has confirmed: cancel or amend through the channel the restaurant used to confirm, which is usually a link in its confirmation email or its booking provider's account page, and do it as early as you can. The restaurant's terms decide whether a fee applies. You are welcome to copy us so that our record matches.",
       ],
     },
@@ -303,7 +306,7 @@ export const bookingPolicy: LegalDocument = {
     },
     {
       heading: "Contact",
-      paragraphs: [`Questions about a request can be sent through the contact form with your reference, or to ${email}. This policy was last updated on the date shown at the top of the page.`],
+      paragraphs: [`Questions about a request can be sent through the contact form with your reference, or by calling ${phone}. This policy was last updated on the date shown at the top of the page.`],
     },
   ],
 };

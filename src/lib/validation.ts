@@ -12,13 +12,11 @@ export const MAX_ONLINE_PARTY = 12;
 
 export const nameSchema = string().trim().min(2, "Please enter your name").max(80, "Name is too long");
 
-export const emailSchema = string().trim().email("Enter a valid email address").max(120);
-
 /** International phone, loosely validated: digits, spaces, dashes, brackets, optional leading +. */
 export const phoneSchema = string()
   .trim()
   .transform((v) => v.replace(/[\s\-().]/g, ""))
-  .refine((v) => v === "" || /^\+?\d{7,15}$/.test(v), "Enter a valid phone number with country code, e.g. +44 20 7946 0000");
+  .refine((v) => /^\+?\d{7,15}$/.test(v), "Enter a valid phone number with country code, e.g. +44 20 7946 0000");
 
 /** Honeypot: real visitors never see or fill this field. */
 const honeypotSchema = string().max(0, "Spam check failed").optional();
@@ -66,7 +64,6 @@ export const tableRequestSchema = object({
   occasion: zodEnum(occasionValues, { message: "Choose an occasion" }),
   dietary: string().trim().max(300, "Please keep dietary notes under 300 characters"),
   name: nameSchema,
-  email: emailSchema,
   phone: phoneSchema,
   notes: string().trim().max(500, "Please keep notes under 500 characters"),
   consent: consentSchema("Please confirm you understand this is a request, not a confirmed booking"),
@@ -92,7 +89,6 @@ export const listingSchema = object({
   website: string().trim().max(200).url("Enter a full URL starting with https://").or(literal("")),
   contactName: nameSchema,
   role: zodEnum(roleValues, { message: "Choose your role" }),
-  email: emailSchema,
   phone: phoneSchema,
   covers: zodEnum(coversOptions, { message: "Choose a size" }),
   message: string().trim().min(10, "Tell us a little about the restaurant").max(1000),
@@ -114,7 +110,7 @@ const topicValues = topicOptions.map((o) => o.value) as [string, ...string[]];
 
 export const contactSchema = object({
   name: nameSchema,
-  email: emailSchema,
+  phone: phoneSchema,
   topic: zodEnum(topicValues, { message: "Choose a topic" }),
   reference: string().trim().max(30),
   message: string().trim().min(10, "Tell us a little more").max(1500),
@@ -126,7 +122,7 @@ export type ContactInput = Infer<typeof contactSchema>;
 export const cityInterestOptions = ["all", "london", "edinburgh", "new-york", "chicago", "philadelphia"] as const;
 
 export const newsletterSchema = object({
-  email: emailSchema,
+  phone: phoneSchema,
   cityInterest: zodEnum(cityInterestOptions, { message: "Choose a city" }),
   consent: consentSchema("Please agree to receive the newsletter"),
   fax: honeypotSchema,

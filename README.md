@@ -1,6 +1,6 @@
 # TableTalk
 
-A restaurant dining guide and table-request service for diners in the United Kingdom and the United States. Every listing shows verified opening hours, menu formats with prices as published, the restaurant's own booking rules, and awards with a year and a link to their source. Visitors can request a table in a minute; the restaurant confirms under its own terms. Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4, and deployed on Vercel.
+A restaurant dining guide and table-request service for diners in the United Kingdom and the United States. Every listing shows verified opening hours, menu formats with prices as published, the restaurant's own booking rules, and awards with a year and a link to their source. Visitors can request a table in a minute, or call the TableTalk booking line, where an AI voice agent books a table in one short conversation. The restaurant confirms requests under its own terms. Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4, and deployed on Vercel.
 
 ## Overview
 
@@ -28,6 +28,11 @@ Core workflow: a visitor browses the listing (search and filters), opens a resta
 - Success state with a reference, a summary, what happens next, and a link to book directly with the restaurant's provider where one is public.
 - Listing enquiry, contact and newsletter forms using the same validation and server action.
 
+### Phone booking (voice agent)
+- The booking number is shown in the header on every page, in a "Book by phone" section on the home and request pages, under the quick finder, in every closing band, on the contact page and in the footer.
+- Calls are answered by the separate service in `voice-agent/` (Telnyx for the call, OpenAI for speech to text, the LangChain agent and text to speech, MongoDB for bookings). It collects name, number of guests, day and time, books one table per one-hour slot from 11:00 to 23:00 with 10 tables per slot, offers the nearest free times when a slot is full, and confirms on the call. See `voice-agent/README.md`.
+- TableTalk has no email channel. Every form asks for a phone number and every reply is a call back.
+
 ### Content
 - Five guides: booking starred restaurants, tasting menus, deposits and cancellations, dress codes, and chef's table versus counter versus private room.
 - Grouped FAQs with FAQPage structured data, an about page that explains the verification method, and four legal documents including a booking and cancellation policy.
@@ -45,8 +50,8 @@ Core workflow: a visitor browses the listing (search and filters), opens a resta
 | Category | Technology |
 |---|---|
 | Frontend | Next.js 16.2 (App Router, Server Components), React 19.2, TypeScript 5 (strict) |
-| Backend | One server action for submissions (`src/actions/requests.ts`), a Node route handler for social cards (`src/app/og/route.tsx`) |
-| Database | None; content lives in typed TypeScript modules under `src/data` |
+| Backend | One server action for submissions (`src/actions/requests.ts`), a Node route handler for social cards (`src/app/og/route.tsx`), and the always-on voice agent service in `voice-agent/` (Fastify, Telnyx, OpenAI, LangChain, MongoDB) |
+| Database | None for the website (content lives in typed modules under `src/data`); MongoDB for phone bookings in `voice-agent/` |
 | Styling | Tailwind CSS v4 (`@theme` tokens), Fraunces and Manrope via `next/font`, self-hosted Material Symbols subset |
 | Validation | Zod 4 on the client and the server, React Hook Form |
 | Images | `next/image` with AVIF/WebP, `sharp` for photo optimisation and social cards |
@@ -80,6 +85,7 @@ src/
 public/
   images/tabletalk/    Optimised editorial photography (Pexels and Unsplash; sources in manifest.json)
   fonts/               Self-hosted Material Symbols subset
+voice-agent/           Always-on phone booking service (own package, tests, Dockerfile, render.yaml)
 scripts/               fetch-photos, fetch-material-symbols, generate-brand-assets, screenshot (local tooling, git-ignored by the owner's rule)
 tests/                 Playwright specs and the route list
 docs/                  Research, strategy and site plan
@@ -105,7 +111,7 @@ npm run dev                  # http://localhost:3000
 | Variable | Required | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Recommended in production | Canonical origin for canonical links, sitemap, robots, Open Graph and JSON-LD. Without it, Vercel production uses the project URL, previews use their own URL and local uses `http://localhost:3000`. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Before launch | Public contact address. Defaults to a reserved `.example` placeholder that the site labels as such. |
+| `NEXT_PUBLIC_BOOKING_PHONE` | Before launch | The Telnyx booking number answered by the voice agent, written for display (e.g. `+44 20 7946 0123`). Defaults to a labelled placeholder from Ofcom's drama range. |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Optional | International number without `+`. WhatsApp links are hidden when empty. |
 | `NEXT_PUBLIC_INSTAGRAM_URL` | Optional | Footer link and Organization `sameAs`; hidden when empty. |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional | Google Search Console verification token. |
@@ -140,7 +146,8 @@ Run the suite against a deployment with `BASE_URL=https://your-domain npm run te
 - Spelling is British English. Restaurant names and menu wording keep the venue's own spelling.
 
 ### Before launch
-- Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_CONTACT_EMAIL` in Vercel.
+- Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_BOOKING_PHONE` in Vercel.
+- Deploy `voice-agent/` to an always-on host (Render, Railway or Fly) and point the Telnyx number at it; see `voice-agent/README.md`.
 - Replace the legal-entity, governing-law and retention placeholders in `src/data/legal.ts` and `src/config/site.ts`.
 - Re-check the listings marked "partial" (Ikoyi, Core by Clare Smyth, Lei, Alinea) against the restaurants' own sites.
 - Connect `REQUEST_WEBHOOK_URL` to the inbox or CRM that will answer requests within the promised working day.

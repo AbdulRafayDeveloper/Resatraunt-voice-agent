@@ -12,7 +12,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "How quickly do you reply?",
-        a: "We reply to every request by email within one working day with a reference number and what happens next. Requests for the same day are better placed directly with the restaurant.",
+        a: "We call you back about every request within one working day with your reference number and what happens next. Requests for the same day are better placed directly with the restaurant.",
       },
       {
         q: "Does it cost anything to request a table?",
@@ -24,7 +24,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "What if I need to cancel?",
-        a: "Reply to your confirmation email or use the contact form with your reference. If the restaurant has already confirmed the booking, its own cancellation terms apply; several listed restaurants charge a fee for cancellations inside 48 or 72 hours.",
+        a: "Call our booking line or use the contact form with your reference. If the restaurant has already confirmed the booking, its own cancellation terms apply; several listed restaurants charge a fee for cancellations inside 48 or 72 hours.",
       },
     ],
   },

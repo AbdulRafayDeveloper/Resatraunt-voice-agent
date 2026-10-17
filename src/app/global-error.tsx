@@ -23,7 +23,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
         <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24, textAlign: "center" }}>
           <LogoMark size={56} />
           <h1 style={{ fontSize: 32, margin: "16px 0 12px", color: "#3B0F1A" }}>Something went wrong</h1>
-          <p style={{ maxWidth: 480, lineHeight: 1.6, margin: "0 0 24px", color: "#5E5964" }}>The page could not be loaded. Please try again. If it keeps happening, email us and we will help directly.</p>
+          <p style={{ maxWidth: 480, lineHeight: 1.6, margin: "0 0 24px", color: "#5E5964" }}>The page could not be loaded. Please try again. If it keeps happening, call our booking line and we will help directly.</p>
           <button type="button" onClick={reset} style={{ background: "#5B1D2B", color: "#fff", border: 0, borderRadius: 8, padding: "12px 20px", fontWeight: 700, cursor: "pointer" }}>
             Try again
           </button>

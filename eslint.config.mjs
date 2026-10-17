@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The voice agent is a separate Node service with its own lint and type checks.
+    "voice-agent/**",
   ]),
 ]);
 

@@ -9,6 +9,7 @@ import { HomeHowItWorks } from "@/components/home/HomeHowItWorks";
 import { HomeNewOpenings } from "@/components/home/HomeNewOpenings";
 import { HomeVerify } from "@/components/home/HomeVerify";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { PhoneBooking } from "@/components/sections/PhoneBooking";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { siteConfig } from "@/config/site";
@@ -32,12 +33,13 @@ export default function HomePage() {
       <HomeFacts />
       <HomeFeatured />
       <HomeHowItWorks />
+      <PhoneBooking number="03" />
       <HomeCollections />
       <HomeNewOpenings />
       <HomeCities />
       <HomeVerify />
       <HomeGuides />
-      <FaqSection items={homeFaqs} number="08" />
+      <FaqSection items={homeFaqs} number="09" />
       <CtaBand image={siteImages.coupleDinner} />
     </>
   );

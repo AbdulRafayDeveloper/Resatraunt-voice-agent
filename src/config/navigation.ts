@@ -19,7 +19,7 @@ export const primaryNav: NavLink[] = [
 export const secondaryNav: NavLink[] = [
   { href: "/for-restaurants", label: "For restaurants", icon: "storefront" },
   { href: "/faqs", label: "FAQs", icon: "help" },
-  { href: "/contact", label: "Contact", icon: "mail" },
+  { href: "/contact", label: "Contact", icon: "call" },
 ];
 
 export const legalNav: NavLink[] = [

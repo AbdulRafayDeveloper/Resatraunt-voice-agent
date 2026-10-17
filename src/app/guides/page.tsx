@@ -74,7 +74,7 @@ export default function GuidesPage() {
           />
           <div className="flex flex-wrap gap-3 lg:justify-end">
             <LinkButton href="/faqs" variant="brass" icon="arrow_forward">Read the FAQs</LinkButton>
-            <LinkButton href="/contact" variant="outlineLight" icon="mail" iconPosition="start">Contact us</LinkButton>
+            <LinkButton href="/contact" variant="outlineLight" icon="call" iconPosition="start">Contact us</LinkButton>
           </div>
         </Container>
       </section>

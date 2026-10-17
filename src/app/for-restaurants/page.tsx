@@ -33,7 +33,7 @@ const listingIncludes = [
 
 const weAskFor = [
   { title: "Your official website URL", detail: "The page we should treat as the source of truth for hours, menus and policies." },
-  { title: "A named contact", detail: "One person and one email address for corrections and forwarded table requests." },
+  { title: "A named contact", detail: "One person and one phone number for corrections and forwarded table requests." },
   { title: "Current hours", detail: "By service, including seasonal changes and closures you already know about." },
   { title: "Menus and prices", detail: "Each format you sell and its published price per person, or a note that the price is only shown at booking." },
   { title: "Awards with dates", detail: "The award, the year and where it was announced. We verify against the awarding body before showing it." },
@@ -134,7 +134,7 @@ export default function ForRestaurantsPage() {
                 ))}
               </ol>
               <p className="mt-5 flex items-start gap-2 border-t border-cream/15 pt-5 text-sm text-cream/80">
-                <Icon name="mark_email_read" className="mt-0.5 text-[18px] text-brass" />
+                <Icon name="phone_in_talk" className="mt-0.5 text-[18px] text-brass" />
                 <span>{siteConfig.replyPromise} Listing enquiries get the same promise.</span>
               </p>
             </div>

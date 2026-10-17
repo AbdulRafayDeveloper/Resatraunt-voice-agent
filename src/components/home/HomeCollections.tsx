@@ -15,7 +15,7 @@ export function HomeCollections() {
     <section className="bg-cream py-section-sm md:py-section" aria-label="Collections">
       <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <SectionHeading number="03" eyebrow="Collections" title={<>Pick by the <em>evening</em> you want.</>} lede="Six short lists, each with a note on why the restaurants are there and what booking them involves." />
+          <SectionHeading number="04" eyebrow="Collections" title={<>Pick by the <em>evening</em> you want.</>} lede="Six short lists, each with a note on why the restaurants are there and what booking them involves." />
           <Link href={`/collections/${lead.slug}`} className="carte relative mt-8 block aspect-[4/5] w-full max-w-sm overflow-hidden" aria-label={`${lead.title} collection`}>
             <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 380px, 80vw" className="object-cover" />
           </Link>
