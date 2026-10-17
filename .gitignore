@@ -55,3 +55,6 @@ TASK_QUEUE.md
 CLAUDE.md
 AGENTS.md
 *.code-workspace
+
+.vercel
+.env*

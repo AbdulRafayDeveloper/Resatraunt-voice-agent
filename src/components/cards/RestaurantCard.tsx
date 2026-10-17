@@ -47,7 +47,8 @@ export function RestaurantCard({ restaurant, layout = "carte", index, priority =
 
   return (
     <article className={cn("group relative flex h-full flex-col", className)}>
-      <Link href={href} className="carte relative block aspect-[4/5] w-full overflow-hidden bg-linen" aria-label={`${restaurant.name} listing`}>
+      {/* The accessible name repeats the visible overlay text so screen-reader and voice-control users hear what they see */}
+      <Link href={href} className="carte relative block aspect-[4/5] w-full overflow-hidden bg-linen" aria-label={`${restaurant.name} listing: ${restaurant.neighbourhood}, ${city.name}, ${priceBandSymbol(restaurant.priceBand, restaurant.currency)}`}>
         <Image src={image.src} alt={image.alt} fill priority={priority} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
         <div className="hero-overlay-bottom absolute inset-0" aria-hidden="true" />
         {index && <span className="absolute left-4 top-4 font-display text-2xl italic text-cream/90">{index}</span>}
@@ -73,7 +74,7 @@ export function RestaurantCard({ restaurant, layout = "carte", index, priority =
             <Icon name="payments" className="text-[16px] text-brass-deep" /> {restaurant.priceFrom ? `From ${formatMoney(restaurant.priceFrom, restaurant.currency)}` : "Priced on the menu"}
           </dd>
         </dl>
-        <p className="mt-2 text-[0.68rem] text-smoke/80">Illustrative photo, not of the restaurant.</p>
+        <p className="mt-2 text-xs text-smoke">Illustrative photo, not of the restaurant.</p>
       </div>
     </article>
   );

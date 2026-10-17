@@ -97,7 +97,7 @@ test.describe("forms", () => {
     await form.getByLabel(/i understand this is a request/i).check();
     await form.getByRole("button", { name: /send table request/i }).click();
 
-    const status = page.getByRole("status");
+    const status = page.getByRole("status").filter({ hasText: /received|on the list/ });
     await expect(status).toContainText(/request received · TT-/i);
     await expect(status).toContainText("Lei");
     await expect(status).toContainText("3 guests");
@@ -124,7 +124,7 @@ test.describe("forms", () => {
     await form.getByLabel("Tell us about the restaurant", { exact: true }).fill("A 40-seat neighbourhood restaurant opening in spring with a set menu.");
     await form.getByLabel(/i agree to be contacted/i).check();
     await form.getByRole("button", { name: /send listing enquiry/i }).click();
-    await expect(page.getByRole("status")).toContainText(/enquiry received · TL-/i);
+    await expect(page.getByRole("status").filter({ hasText: /received|on the list/ })).toContainText(/enquiry received · TL-/i);
   });
 
   test("contact form validates then succeeds", async ({ page }) => {
@@ -137,7 +137,7 @@ test.describe("forms", () => {
     await form.getByLabel("Topic", { exact: true }).selectOption("listing");
     await form.getByLabel("Your message", { exact: true }).fill("The opening hours for one restaurant look out of date, please check.");
     await form.getByRole("button", { name: /send message/i }).click();
-    await expect(page.getByRole("status")).toContainText(/message received · TC-/i);
+    await expect(page.getByRole("status").filter({ hasText: /received|on the list/ })).toContainText(/message received · TC-/i);
   });
 
   test("newsletter sign-up requires consent and then succeeds", async ({ page }) => {
@@ -149,7 +149,7 @@ test.describe("forms", () => {
     await expect(form.getByText(/please agree to receive/i)).toBeVisible();
     await form.getByRole("checkbox").check();
     await form.getByRole("button", { name: /subscribe/i }).click();
-    await expect(page.getByRole("status")).toContainText(/TN-/);
+    await expect(page.getByRole("status").filter({ hasText: /received|on the list/ })).toContainText(/TN-/);
   });
 });
 
