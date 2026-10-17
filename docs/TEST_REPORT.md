@@ -12,7 +12,7 @@ Date: 17 October 2026. Build: Next.js 16.2.10 production build, 55 routes preren
 | Playwright, local production server (`next start`) | 150 passed, 3 skipped (project-specific), 0 failed, 5.3 min |
 | Playwright, live production URL, all projects | 146 passed, 4 failed on the third browser project: all four were form submissions rejected by the per-IP rate limit (8 submissions per 10 minutes) after the first two projects had submitted 8 forms |
 | Playwright, live, mobile Chromium forms and home rerun after the window | 21 passed, 1 skipped, 0 failed |
-| Lighthouse 12 (mobile emulation) on the live home page | Performance 77, Accessibility 97, Best practices 100, SEO 100; LCP 3.9 s, CLS 0, TBT 430 ms |
+| Lighthouse 12 (mobile emulation) on the live home page, three runs | Accessibility 97 → 100 after the card fixes; Best practices 100; SEO 100. Performance 77 / 51 / 75; LCP 3.9–4.3 s; TBT 430–590 ms; CLS 0 in two runs and 0.33 in one cold-cache run (a single shift of the footer). Treat performance as indicative and re-measure after launch. |
 
 Playwright projects: desktop Chromium 1440×900, mobile Firefox 390×844 (touch), mobile Chromium (Pixel 7 emulation). These are browser emulations; no physical devices were used.
 
